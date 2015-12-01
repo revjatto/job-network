@@ -4,7 +4,12 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    if params[:category].blank?
+    @jobs = Job.all.order("created_at DESC")
+  else
+          @category_id = Category.find_by(name: params[:category]).id
+          @jobs = Job.where(:category_id => @category_id)
+      end
   end
 
   # GET /jobs/1
@@ -15,17 +20,19 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+      @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   # GET /jobs/1/edit
   def edit
+     @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   # POST /jobs
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
-
+    @job.category_id = params[:category_id]
     respond_to do |format|
       if @job.save
         format.html { redirect_to @job, notice: 'Job was successfully created.' }
@@ -40,6 +47,7 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
   def update
+     @job.category_id = params[:category_id]
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
@@ -69,6 +77,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :company, :salary, :description, :user_id)
+      params.require(:job).permit(:title, :company, :salary, :description, :category_id, :user_id)
     end
 end

@@ -1,29 +1,22 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @job.title %>
-</p>
+<div class="container">
+  <div class="well">
+<h2>Job Title:<%= @job.title %></h2>
+<h2> Company Name: <%= @job.company %></h2>
+<h3>Salary: <%= @job.salary %></h3>
+<h3> Job Details: </h3> <%= @job.description.html_safe %>
 
-<p>
-  <strong>Company:</strong>
-  <%= @job.company %>
-</p>
+<br/>
 
-<p>
-  <strong>Salary:</strong>
-  <%= @job.salary %>
-</p>
+  <% if current_user.try(:admin?) %>
+<%= link_to "Edit", edit_job_path(@job), :class => 'btn btn-danger' %>
+<%= link_to "Delete", job_path(@job), :class => 'btn btn-danger', method: :delete, data: { confirm: "Are you sure?"} %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @job.user_id %>
-</p>
+<% else %>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<p><%= link_to "Apply for this Job Now", '#', :class => 'btn btn-danger' %></p>
+<% end %>
+</div>
+
+</div>

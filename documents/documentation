@@ -11,4 +11,13 @@ config.action_mailer.smtp_settings = {
       user_name: "your_email@gmail.com",
       password: "your_password"
 
-http://www.peoplecancode.com/tutorials/how-to-manage-users-with-devise-ruby-on-rails
+http://www.peoplecancode.com/tutorials/how-to-manage-users-with-devise-ruby-on-rails - done
+
+
+next1 = http://www.peoplecancode.com/tutorials/styling-devise-forms-with-twitter-bootstrap done
+next2 = http://www.peoplecancode.com/tutorials/adding-custom-fields-to-devise done
+
+
+next3 =http://www.peoplecancode.com/tutorials/users-avatars-uploading-images-using-paperclip
+
+  <%= f.text_area :description, label: "Job Details" 

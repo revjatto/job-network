@@ -1,6 +1,18 @@
-<h1>Editing Job</h1>
+<%= tinymce_assets %>
+<%= tinymce %>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @job %> |
-<%= link_to 'Back', jobs_path %>
+<h1>Edit Job</h1>
+
+<%= simple_form_for @job, :html => { :multipart => true } do |f| %>
+<%= f.select :category_id, @categories %>
+<!--<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>-->
+<%= f.input :title, label: "Job Title" %>
+<%= f.input :company, label: "Comapny Name:" %>
+<%= f.input :salary, label: "Job Salary:" %>
+<%= f.text_area :description, :class => "tinymce", :rows => 40, :cols => 120 %>
+
+<%= f.button :submit %>
+<% end %>
+<%= link_to 'Show', @job, :class => 'btn btn-default' %> |
+<%= link_to 'Back', jobs_path, :class => 'btn btn-default' %>

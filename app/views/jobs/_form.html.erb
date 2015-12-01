@@ -1,37 +1,17 @@
-<%= form_for(@job) do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+<%= tinymce %>
+<div class="container">
 
-      <ul>
-      <% @job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@job, html: { class: 'form-horizontal' }) do |f| %>
+<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
+<div class="well">
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
-  </div>
-  <div class="field">
-    <%= f.label :salary %><br>
-    <%= f.text_field :salary %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= f.input :title, label: "Job Title" %>
+  <%= f.input :company, label: "Your Company Name" %>
+  <%= f.input :salary, label: "Job Salary" %>
+  <%= f.text_area :description, :class => "tinymce", :rows => 40, :cols => 120 %>
+    <br/>
+  <%= f.button :submit, :class => "btn btn-primary btn-lg" %>
+        <% end %>
+
+</div>
+</div>

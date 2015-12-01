@@ -1,2 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+body {
+
+	height: 100%;
+  background: -webkit-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+  background:    -moz-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+  background:     -ms-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+  background:      -o-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+  background:         linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+  font-family: ‘Metrophobic’, Arial, serif; font-weight: 400; font-size: 16px;
+  line-height: 30px;
+}
+
+p.time {
+  color: #FF0000;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
+.navbar-default {
+	background-color: black;
+	border-radius: 0;
+	height: 80px;
+	padding: 15px 0;
+	border: none;
+}
+
+.navbar-brand {
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	font-size: 1.8em;
+	font-weight: 300;
+	color: #1D976C !important;
+}
+textarea {
+    width: 100%;
+    height: 300px;
+}
+
+.job-list{
+	border: 1px solid #4169E1;
+	background: #4169E1;
+	height: 100px;
+	text-align: center;
+	color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+}
+.interview{
+	border: 1px solid #4169E1;
+	background: #4169E1;
+	height: 30px;
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+	margin-top: 0;
+	padding: 0;
+}
